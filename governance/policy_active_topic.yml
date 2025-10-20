@@ -1,0 +1,65 @@
+name: Policy - Active Topic Reference
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check-active-topic-ref:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: read
+      pull-requests: write
+    
+    steps:
+      - name: Validate PR references active issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            
+            console.log(`Checking PR #${pr.number} for active issue reference`);
+            
+            // Find the active topic
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'topic:active',
+              state: 'open'
+            });
+            
+            if (issues.data.length === 0) {
+              console.log('⚠️ No active topic found. Cannot validate PR.');
+              await github.rest.pulls.createReview({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                body: `⚠️ **Warning: No Active Topic**\n\nNo issue currently has the \`topic:active\` label. Please activate an issue before merging this PR.\n\nSee Governance/POLICY_GATES.md for details.`,
+                event: 'COMMENT'
+              });
+              return;
+            }
+            
+            const activeIssue = issues.data[0];
+            console.log(`Active topic: #${activeIssue.number}`);
+            
+            // Check if PR description or title references the active issue
+            const prContent = `${pr.title}\n${pr.body || ''}`;
+            const refPattern = new RegExp(`#${activeIssue.number}|closes #${activeIssue.number}|fixes #${activeIssue.number}`, 'i');
+            const hasRef = refPattern.test(prContent);
+            
+            if (!hasRef) {
+              console.log(`❌ PR #${pr.number} does not reference active issue #${activeIssue.number}`);
+              
+              core.setFailed(`PR must reference active issue #${activeIssue.number}`);
+              
+              await github.rest.pulls.createReview({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                body: `❌ **Policy Violation: Missing Active Topic Reference**\n\nThis PR must reference the active issue: **#${activeIssue.number}**\n\nUpdate your PR description to include one of:\n- \`Closes #${activeIssue.number}\`\n- \`Fixes #${activeIssue.number}\`\n- \`#${activeIssue.number}\`\n\nSee Governance/POLICY_GATES.md for details.`,
+                event: 'COMMENT'
+              });
+            } else {
+              console.log(`✅ PR #${pr.number} correctly references active issue #${activeIssue.number}`);
+            }

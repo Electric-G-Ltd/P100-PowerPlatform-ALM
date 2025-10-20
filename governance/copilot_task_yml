@@ -1,0 +1,100 @@
+name: Copilot Task
+description: Standard task/issue template for P100-PowerPlatform-ALM
+title: "25P###-[Issue Title in Kebab-Case]"
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Copilot Task Template
+        
+        **Repository:** Electric-G-Ltd/P100-PowerPlatform-ALM
+        
+        Use this template to create structured issues that align with P100 governance.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What is the goal of this work?
+      placeholder: "e.g., Establish foundational governance documents for P100-PowerPlatform-ALM"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why is this work needed? What problem does it solve?
+      placeholder: "Provide background and business/technical context"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: How do we know this work is complete? (use checkboxes)
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: What will be delivered? (files, code, documentation, etc.)
+      placeholder: |
+        - PR with [description]
+        - Documentation updated
+        - Tests added
+    validations:
+      required: false
+
+  - type: textarea
+    id: teach_back
+    attributes:
+      label: Teach-Back (Required)
+      description: |
+        Explain the professional reasoning behind this work. What will be learned?
+        
+        Include:
+        - **Decision/Work:** What is being done
+        - **Professional Reasoning:** Why this approach
+        - **What You'll Learn:** Key takeaways
+        - **Trade-offs:** Pros and cons considered
+      placeholder: |
+        ## Teach-Back: [Title]
+        
+        **Decision:** [What is being done]
+        
+        **Professional Reasoning:**
+        - [Reason 1]
+        - [Reason 2]
+        
+        **What You'll Learn:**
+        - [Learning 1]
+        - [Learning 2]
+        
+        **Trade-offs:**
+        - Pro: [Benefit]
+        - Con: [Cost]
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Naming Convention
+        
+        Issue titles must follow: **`25P###-Title-In-Kebab-Case`**
+        
+        - `25` = Year
+        - `P` = Project prefix
+        - `###` = Sequential number
+        - `Title` = Descriptive, kebab-case
+        
+        Example: `25P001-Project-Governance`

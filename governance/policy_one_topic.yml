@@ -1,0 +1,63 @@
+name: Policy - One Topic Active
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  check-one-topic:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    
+    steps:
+      - name: Check for existing topic:active labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const label = context.payload.label.name;
+            
+            // Only care about topic:active labels
+            if (label !== 'topic:active') {
+              console.log('Label is not topic:active, skipping check');
+              return;
+            }
+            
+            console.log(`Checking topic:active for issue #${issue.number}`);
+            
+            // Search for other issues with topic:active
+            const response = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'topic:active',
+              state: 'open'
+            });
+            
+            console.log(`Found ${response.data.length} issues with topic:active`);
+            
+            const otherActive = response.data.filter(i => i.number !== issue.number);
+            
+            if (otherActive.length > 0) {
+              console.log(`Policy violation: Issue #${otherActive[0].number} already has topic:active`);
+              
+              // Remove the label from this issue
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                name: 'topic:active'
+              });
+              
+              // Comment on this issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `⚠️ **Policy Violation: One-Topic-At-A-Time Enforcement**\n\nOnly one issue can have the \`topic:active\` label at a time.\n\n**Currently active:** #${otherActive[0].number}\n\nThis label has been removed. Please ensure the current topic (#${otherActive[0].number}) is complete before activating a new one.\n\nFor questions, contact @electricgltd.`
+              });
+              
+              console.log(`Removed topic:active from issue #${issue.number}`);
+            } else {
+              console.log(`✅ No policy violation. Issue #${issue.number} is now the active topic`);
+            }

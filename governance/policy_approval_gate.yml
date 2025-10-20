@@ -1,0 +1,31 @@
+name: Policy - Approval Gate
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  enforce-approval:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    
+    steps:
+      - name: Check approval from electricgltd
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const review = context.payload.review;
+            
+            console.log(`Review from @${review.user.login} on PR #${pr.number}`);
+            
+            if (review.user.login === 'electricgltd') {
+              if (review.state === 'APPROVED') {
+                console.log(`✅ Approved by @electricgltd`);
+              } else if (review.state === 'CHANGES_REQUESTED') {
+                console.log(`📝 Changes requested by @electricgltd`);
+              }
+            } else {
+              console.log(`Review from @${review.user.login} (not approval authority)`);
+            }

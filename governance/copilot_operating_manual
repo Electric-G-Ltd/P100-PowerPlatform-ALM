@@ -1,0 +1,31 @@
+# Copilot Operating Manual – P100-PowerPlatform-ALM
+
+**Audience:** GitHub Copilots and AI agents working on this repository
+
+---
+
+## Repository Context
+- **Organization:** Electric-G-Ltd
+- **Repository:** P100-PowerPlatform-ALM
+- **Full Path:** `Electric-G-Ltd/P100-PowerPlatform-ALM`
+- **Approving Authority:** Gareth (@electricgltd)
+- **Primary User:** @electricgltd
+
+---
+
+## Core Operating Principles
+
+### 1. One-Topic-At-A-Time Enforcement
+
+**Why:** ADHD-friendly work practice. Supports deep focus and systematic learning.
+
+**Your Job:**
+- Always check for the active `topic:active` label before starting new work
+- Only one `topic:active` label should exist at a time
+- Block PRs or issues that violate this constraint
+- Enforce via policy automation (see `POLICY_GATES.md`)
+
+**How to Check:**
+```bash
+# List all issues with topic:active label
+# Use GitHub API or UI to verify only one exists
