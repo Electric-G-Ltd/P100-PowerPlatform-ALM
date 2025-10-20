@@ -1,0 +1,100 @@
+# --- OS / Editors ---
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code (keep repo-shared settings/extensions if you use them)
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# --- Logs / temp / archives ---
+*.log
+*.out
+*.tmp
+*.swp
+*.bak
+*.old
+*.orig
+*.patch
+*.diff
+*.zip
+*.7z
+*.tar
+*.gz
+*.bz2
+
+# --- Dev Container / Docker / local env ---
+.devcontainer/*.env
+.devcontainer/*.local
+.devcontainer/**/secrets.*
+.devcontainer/**/cache/
+.devcontainer/**/tmp/
+docker-compose.override.yml
+*.env
+
+# --- Node / JavaScript ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+# Lockfiles: keep or ignore per your policy (keeping them improves reproducibility)
+#!package-lock.json
+#!pnpm-lock.yaml
+#!yarn.lock
+pnpm-lock.yaml
+
+# --- .NET / PowerShell / PAC ---
+bin/
+obj/
+.nuget/
+*.user
+*.suo
+*.nupkg
+# Power Platform CLI caches / artifacts (tune as needed)
+*.pacconfig
+**/*.generated.*
+# PowerShell
+*.ps1xml
+
+# --- Python (if any) ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+.env
+env/
+venv/
+
+# --- Build outputs / reports ---
+coverage/
+dist/
+build/
+out/
+tmp/
+cache/
+reports/
+
+# --- Office / design binaries (optional) ---
+*.pst
+*.ai
+*.psd
+*.sketch
+*.fig
+
+# --- Local settings you don’t want public ---
+*.local.json
+*secrets*.json
+*secret*.json
+*.key
+*.pem
+*.p12
+*.pfx

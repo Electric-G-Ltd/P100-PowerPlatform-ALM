@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vuU5yeWxFUDRdkXOOBEkToW+GZdmpUCocMib1yjsm5w=",
+  "Source": "PowerPlatformConnector",
+  "BasePath": "_content/PowerPlatformConnector",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

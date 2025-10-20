@@ -1,0 +1,17 @@
+# Normalize line endings to LF in repo; Git will translate to CRLF on Windows checkouts as needed
+* text=auto eol=lf
+
+# Explicitly mark common text formats
+*.md text
+*.json text
+*.yaml text
+*.yml text
+*.ps1 text eol=crlf
+*.psm1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# If you decide to store large binaries, enable LFS for them:
+#*.png filter=lfs diff=lfs merge=lfs -text
+#*.jpg filter=lfs diff=lfs merge=lfs -text
+#*.zip filter=lfs diff=lfs merge=lfs -text

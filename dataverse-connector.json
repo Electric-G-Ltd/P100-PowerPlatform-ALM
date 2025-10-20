@@ -1,0 +1,300 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Dataverse Custom Connector API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Dataverse/tables": {
+      "get": {
+        "tags": [
+          "Dataverse"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DataverseTable"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DataverseTable"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DataverseTable"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dataverse/tables/{tableName}": {
+      "get": {
+        "tags": [
+          "Dataverse"
+        ],
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataverseTable"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataverseTable"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataverseTable"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dataverse/tables/{tableName}/columns": {
+      "get": {
+        "tags": [
+          "Dataverse"
+        ],
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TableColumn"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TableColumn"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TableColumn"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dataverse/health": {
+      "get": {
+        "tags": [
+          "Dataverse"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dataverse/debug/config": {
+      "get": {
+        "tags": [
+          "Dataverse"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "PowerPlatformConnector"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DataverseTable": {
+        "type": "object",
+        "properties": {
+          "@odata.type": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetadataId": {
+            "type": "string",
+            "nullable": true
+          },
+          "LogicalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DisplayName": {
+            "$ref": "#/components/schemas/DisplayNameValue"
+          },
+          "Description": {
+            "$ref": "#/components/schemas/DisplayNameValue"
+          },
+          "SchemaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "EntitySetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsCustomEntity": {
+            "type": "boolean"
+          },
+          "OwnershipType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DisplayNameValue": {
+        "type": "object",
+        "properties": {
+          "UserLocalizedLabel": {
+            "$ref": "#/components/schemas/LocalizedLabel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocalizedLabel": {
+        "type": "object",
+        "properties": {
+          "Label": {
+            "type": "string",
+            "nullable": true
+          },
+          "LanguageCode": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequiredLevelValue": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TableColumn": {
+        "type": "object",
+        "properties": {
+          "@odata.type": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetadataId": {
+            "type": "string",
+            "nullable": true
+          },
+          "LogicalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DisplayName": {
+            "$ref": "#/components/schemas/DisplayNameValue"
+          },
+          "SchemaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AttributeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsPrimaryId": {
+            "type": "boolean"
+          },
+          "IsPrimaryName": {
+            "type": "boolean"
+          },
+          "IsValidForRead": {
+            "type": "boolean"
+          },
+          "IsValidForCreate": {
+            "type": "boolean"
+          },
+          "IsValidForUpdate": {
+            "type": "boolean"
+          },
+          "RequiredLevel": {
+            "$ref": "#/components/schemas/RequiredLevelValue"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
