@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PowerPlatformConnector")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f2a649bf5f578bf9fef6bc37777a4a3d8bb8406")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7aa22978c4400c8b2bfc3945d31e6c74a33990f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("PowerPlatformConnector")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PowerPlatformConnector")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
