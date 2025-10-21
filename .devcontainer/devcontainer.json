@@ -1,5 +1,5 @@
 {
-  "name": "P100 Power Platform ALM DevContainer",
+  "name": "VS Code Extension SDK DevContainer",
   "dockerFile": "Dockerfile",
   "customizations": {
     "vscode": {
@@ -9,10 +9,9 @@
       "extensions": [
         "ms-dotnettools.csharp",
         "ms-vscode.powershell",
-        "ms-vscode.azurecli",
-        "microsoft-IsvExpTools.powerplatform-vscode"
+        "ms-vscode.vscode-typescript-next"
       ]
     }
   },
-  "postCreateCommand": "pac install && dotnet tool restore && pwsh ./set_up/install-coredevtools.ps1"
+  "postCreateCommand": "dotnet --version && tsc --version"
 }
