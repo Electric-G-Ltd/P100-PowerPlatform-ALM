@@ -1,0 +1,29 @@
+{
+  "name": "p100-vscode-extension-sdk",
+  "displayName": "P100 VS Code Extension SDK",
+  "description": "Modular SDK for VS Code customization and Microsoft Graph API integration.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+  "vscode:prepublish": "npm run compile",
+  "compile": "tsc -p ./",
+  "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+  "typescript": "^5.0.0",
+  "@types/node": "^20.0.0",
+  "@types/vscode": "^1.80.0"
+  }
+}
