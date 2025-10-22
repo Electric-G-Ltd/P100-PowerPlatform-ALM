@@ -1,0 +1,15 @@
+{
+  // Recommended extensions for this workspace (good for VS Code Insiders profile)
+  "recommendations": [
+    "ms-dotnettools.csharp",
+    "ms-vscode.powershell",
+    "ms-vscode.vscode-typescript-next",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers",
+    "visualstudioexptteam.vscodeintellicode"
+  ],
+  "unwantedRecommendations": []
+}
