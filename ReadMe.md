@@ -24,12 +24,36 @@ This project supports development in a VS Code dev container, including VS Code 
 		 }
 		 ```
 
+
 ### Troubleshooting
 
 - If the container fails to build, check for syntax errors or deprecated fields in `.devcontainer/devcontainer.json` and `Dockerfile`.
 - Remove any `.devcontainer` cache folders and rebuild.
 - Ensure you are using a recent base image in the Dockerfile.
 - For Copilot issues, update the extension inside the container or pin the desired version.
+
+#### ALM Build Issues (NuGet Restore)
+
+If you see errors about missing NuGet packages (e.g., `Microsoft.Extensions.Configuration.Binder, version 9.0.9`):
+
+1. Open a terminal in the dev container.
+2. Run:
+	```sh
+	dotnet restore Connectors/PowerPlatformConnector.csproj
+	```
+3. If restore fails, clear NuGet caches and try again:
+	```sh
+	dotnet nuget locals all --clear
+	dotnet restore Connectors/PowerPlatformConnector.csproj
+	```
+4. To manually add a missing package:
+	```sh
+	dotnet add Connectors/PowerPlatformConnector.csproj package Microsoft.Extensions.Configuration.Binder --version 9.0.9
+	dotnet restore Connectors/PowerPlatformConnector.csproj
+	```
+5. If you see path length issues, move your workspace to a shorter path (e.g., `C:\P100`).
+
+This resolves most ALM build and language server issues in the dev container.
 
 ### Environment Variables
 
