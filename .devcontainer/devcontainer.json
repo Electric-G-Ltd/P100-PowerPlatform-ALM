@@ -26,6 +26,6 @@
     }
   },
     // verify dotnet and typescript are available, install workspace node deps if present, and restore solution dependencies
-    "postCreateCommand": "dotnet --version && tsc --version || true && if [ -f \"GitHub_P100PPALM_Workspace/src/package-lock.json\" ]; then (cd GitHub_P100PPALM_Workspace/src && npm ci); elif [ -f \"GitHub_P100PPALM_Workspace/src/yarn.lock\" ]; then (cd GitHub_P100PPALM_Workspace/src && npm install); else echo 'No JS lockfile found; skipping npm install'; fi && dotnet restore",
+    "postCreateCommand": "bash .devcontainer/smoke-test.sh",
   "remoteUser": "vscode"
 }
