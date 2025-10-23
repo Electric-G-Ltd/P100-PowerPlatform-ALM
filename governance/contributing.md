@@ -15,11 +15,11 @@ Thank you for contributing to this project! This guide explains how to work with
 
 ### 1. Understand the One-Topic-At-A-Time Workflow
 
-At any given time, **only one topic is active**. Check the repository for the issue labeled `topic:active`.
+At any given time, **only one topic is active**. Check the repository for the issue labeled `2-topic:active`.
 
 If you want to start new work:
 - Verify the current active topic is complete
-- Request approval from @electricgltd to mark the new topic as `topic:active`
+- Request approval from @electricgltd to mark the new topic as `2-topic:active`
 - Begin work once approved
 
 ### 2. Create an Issue
@@ -31,15 +31,41 @@ If you want to start new work:
 **Components:**
 - `25` = Year (2025)
 - `P` = Project prefix
-- `###` = Sequential number (increment from the last issue)
+- `###` = Sequential number
 - `Title` = Descriptive title, kebab-case
 
 **Issue Template:**
 Use the standardized issue template (`.github/ISSUE_TEMPLATE/copilot-task.yml`). Include:
-- Clear description of work
-- Acceptance criteria
-- Teach-Back section (explain the professional reasoning and what will be learned)
+- **Objective:** What is the goal of this work?
+- **Context:** Why is this work needed?
+- **Acceptance Criteria:** How do we know it's complete? (use checkboxes)
+- **Deliverables:** What will be delivered?
+- **Teach-Back:** Explain the professional reasoning and what will be learned
 
-### 3. Create a Branch
+**Required Labels:**
 
-Branch naming follows the issue name:Autopopulate from the issue
+Apply labels using the three-tier structure:
+
+**Tier 1: AREA (Choose one)**
+- `1-area:custom-apis` — Custom API integrations
+- `1-area:connectors` — Power Platform connectors and data connections
+- `1-area:plugins` — Custom business logic and plugins
+- `1-area:automation` — Power Automate solutions and flows
+- `1-area:web-resources` — HTML, JavaScript, CSS resources
+- `1-area:governance` — Documentation, policies, governance processes
+
+**Tier 2: TOPICS (As applicable)**
+- `2-topic:active` — Currently being worked on (enforced one-at-a-time)
+- `2-topic:research` — Exploratory or research work
+
+**Tier 3: ACTIONS (As applicable)**
+- `3-action:issue-template` — Issue needs proper structure/template completion
+- `3-action:raise-pr` — Ready to create PR
+- `3-action:export-solution` — (To be added as processes develop)
+- `3-action:import-solution` — (To be added as processes develop)
+- `3-action:package-solution` — (To be added as processes develop)
+- `3-action:review` — (To be added as processes develop)
+
+**Example Issue Labels:**
+
+Scenario: Developing a custom connector integration, actively working, ready for PR.
