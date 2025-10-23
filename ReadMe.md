@@ -3,13 +3,13 @@
 
 Automation and ALM for Power Platform
 
-## Dev Container Setup (VS Code Dev Insider)
+## Dev Container Setup (VS Code)
 
-This project supports development in a VS Code dev container, including VS Code Dev Insider and GitHub Copilot integration.
+This project supports development in a VS Code dev container, but not including VS Code Dev Insider (as of yet) and GitHub Copilot integration.
 
 ### Quick Start
 
-1. **Open in VS Code Dev Insider**
+1. **Open in VS Code**
 	 - Use the "Reopen in Container" command from the Command Palette.
 2. **Rebuild the Dev Container**
 	 - If prompted, select "Rebuild Container" to ensure all dependencies are installed.
