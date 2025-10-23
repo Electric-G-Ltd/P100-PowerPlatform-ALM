@@ -20,7 +20,35 @@ This project supports development in a VS Code dev container, including VS Code 
 		 "customizations": {
 			 "vscode": {
 				 "extensions": ["github.copilot@4.1.0"]
-			 }
+
+			# ![Build Status](https://github.com/Electric-G-Ltd/P100-PowerPlatform-ALM/actions/workflows/ci-cd.yml/badge.svg)
+
+			## Workflow Overview
+
+			### .NET CI/CD Automation
+			This repository uses GitHub Actions for automated build, test, and publish of the .NET solution. Every push or pull request to `main` triggers:
+			- Dependency restore
+			- Build
+			- Test
+			- Publish artifacts
+
+			See `.github/workflows/ci-cd.yml` for details.
+
+			### Power Platform Solution Management (Manual)
+			Power Platform solutions (Dataverse, connectors, etc.) are managed manually. Export/import and updates are performed as needed from your development environment.
+
+			**Manual Solution Update Checklist:**
+			1. Export latest solution from dev environment
+			2. Import into test or target environment
+			3. Validate changes and run tests
+			4. Update documentation as needed
+			5. Set up Copilot Studio Kit (when ready)
+
+			**Copilot Studio Kit Setup:**
+			- Follow Microsoft documentation for Copilot Studio Kit installation and configuration
+			- Integrate with your Power Platform solution as required
+
+			---
 		 }
 		 ```
 
@@ -41,6 +69,8 @@ This project supports development in a VS Code dev container, including VS Code 
 - `.devcontainer/` — Dev container config and Dockerfile
 - `docs/` — Documentation
 - `scripts/` — Setup and utility scripts
+
+---
 
 ---
 For more help, see the Issues tab or contact the project maintainers.
