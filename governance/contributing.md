@@ -69,3 +69,75 @@ Apply labels using the three-tier structure:
 **Example Issue Labels:**
 
 Scenario: Developing a custom connector integration, actively working, ready for PR.
+
+---
+
+## 3. Create a Pull Request
+
+**Important:** Before creating a PR, ensure you understand the pipeline and CI/CD process documented in #43 (25P023).
+
+### PR Naming & Linking
+
+- **PR title:** Same as issue name: `25P###-Title-In-Kebab-Case`
+- **PR description:** Must reference the active issue with `Closes #X`
+- **Template:** Use the PR template at `governance/pull_request_template.md`
+
+### Pipeline Checks
+
+When you create a PR, GitHub automatically runs:
+- **CodeQL Analysis** — Security and code quality scanning
+- **Linting Checks** — Code style and formatting
+- **Tests** — Automated test suite (if configured)
+
+**Your responsibility:**
+- Review all check results in the PR "Checks" tab
+- Fix any failures by making local changes and pushing again
+- Do NOT merge until all checks pass
+- Document your fixes in the Teach-Back section
+
+### CodeQL Handling
+
+CodeQL is GitHub's automated security and code quality tool. If CodeQL flags issues in your PR:
+
+**Policy:** Fix all CodeQL alerts before PR merge (unless explicitly approved to suppress).
+
+**Approach:**
+1. Fix one alert at a time (not all at once)
+2. Commit with descriptive message
+3. Push to the same branch (PR auto-updates)
+4. Let pipeline re-run automatically
+5. Repeat until all alerts resolved
+
+**Why fix one at a time?**
+- Isolates changes for easier debugging
+- Provides clear pipeline feedback
+- Simplifies code review
+- Better for learning
+
+**If unsure about an alert:**
+- Leave a comment: `@electricgltd – Need guidance on this CodeQL alert: [description]`
+- Reference the active issue
+- Wait for guidance
+
+For detailed guidance, see **Issue #43** (25P023): CodeQL and CI/CD Pipeline Code Suggestion Change Process
+
+### Teach-Back Requirement
+
+Every PR must include a comprehensive Teach-Back section in the description. Use the template:
+
+```markdown
+### Teach-Back: [Title]
+
+**Decision:** [What was changed and why]
+
+**Professional Reasoning:**
+- [Reason 1]
+- [Reason 2]
+
+**What You'll Learn:**
+- [Learning 1]
+- [Learning 2]
+
+**Trade-offs:**
+- Pro: [Benefit]
+- Con: [Cost]
