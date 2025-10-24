@@ -109,4 +109,4 @@ All code changes must pass automated pipeline checks before approval:
 
 **Policy:** No PRs merge with failing pipeline checks.
 
-For detailed CodeQL guidance, see **Issue #43 (25P023): CodeQL and CI/CD Pipeline Code Suggestion Change Process**
+For detailed CodeQL guidance, see [Issue #43 (25P023): CodeQL and CI/CD Pipeline Code Suggestion Change Process](#43)
