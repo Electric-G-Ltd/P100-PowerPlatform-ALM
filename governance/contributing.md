@@ -119,7 +119,7 @@ CodeQL is GitHub's automated security and code quality tool. If CodeQL flags iss
 - Reference the active issue
 - Wait for guidance
 
-For detailed guidance, see **Issue #43 (25P023): CodeQL and CI/CD Pipeline Code Suggestion Change Process**
+For detailed guidance, see **Issue #43** (25P023): CodeQL and CI/CD Pipeline Code Suggestion Change Process
 
 ### Teach-Back Requirement
 
