@@ -74,7 +74,7 @@ Scenario: Developing a custom connector integration, actively working, ready for
 
 ## 3. Create a Pull Request
 
-**Important:** Before creating a PR, ensure you understand the pipeline and CI/CD process documented in Issue #43 (25P023).
+**Important:** Before creating a PR, ensure you understand the pipeline and CI/CD process documented in #43 (25P023).
 
 ### PR Naming & Linking
 
