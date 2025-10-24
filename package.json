@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "generator-code": "^1.11.13"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.13.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7"
   }
 }
