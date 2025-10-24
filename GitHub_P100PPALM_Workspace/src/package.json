@@ -3,11 +3,15 @@
   "displayName": "P100 VS Code Extension SDK",
   "description": "Modular SDK for VS Code customization and Microsoft Graph API integration.",
   "version": "0.0.1",
+  "publisher": "electric-g-ltd",
   "engines": {
     "vscode": "^1.80.0"
   },
   "categories": ["Other"],
-  "main": "./extension.js",
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:extension.helloWorld"
+  ],
   "contributes": {
     "commands": [
       {
@@ -17,13 +21,13 @@
     ]
   },
   "scripts": {
-  "vscode:prepublish": "npm run compile",
-  "compile": "tsc -p ./",
-  "watch": "tsc -watch -p ./"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
-  "typescript": "^5.0.0",
-  "@types/node": "^20.0.0",
-  "@types/vscode": "^1.80.0"
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0"
   }
 }
