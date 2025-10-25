@@ -104,9 +104,6 @@ export class GraphService {
         throw new Error("Invalid response from server.");
       }
       return data as CopilotSettings;
-    } catch (err: any) {
-      this.logError(`Network or parsing error: ${err.message}`);
-      throw err;
     }
   }
 
