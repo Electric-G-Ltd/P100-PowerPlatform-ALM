@@ -1,6 +1,7 @@
 {
   // Recommended extensions for this workspace (good for VS Code Insiders profile)
   "recommendations": [
+    // Core development
     "ms-dotnettools.csharp",
     "ms-vscode.powershell",
     "ms-vscode.vscode-typescript-next",
@@ -9,7 +10,17 @@
     "eamodio.gitlens",
     "ms-azuretools.vscode-docker",
     "ms-vscode-remote.remote-containers",
-    "visualstudioexptteam.vscodeintellicode"
+    "visualstudioexptteam.vscodeintellicode",
+    // Planner, Dataverse, Graph API
+    "humao.rest-client", // REST Client by Huachao Mao
+    "rangav.vscode-thunder-client", // Thunder Client
+    "microsoft-IsvExpTools.powerplatform-vscode", // Power Platform Tools (Microsoft)
+    "microsoft-IsvExpTools.powerapps-checker", // Power Apps Checker
+    "msjsdiag.debugger-for-chrome", // Debugger for Chrome
+    "msjsdiag.debugger-for-edge", // Debugger for Edge
+    "ms-vscode.azure-account", // Azure Account
+    // Productivity
+    "gencay.vscode-json-to-csv" // JSON to CSV
   ],
   "unwantedRecommendations": []
 }
