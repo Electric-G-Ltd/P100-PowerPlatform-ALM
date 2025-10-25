@@ -7,7 +7,9 @@
   "engines": {
     "vscode": "^1.80.0"
   },
-  "categories": ["Other"],
+  "categories": [
+    "Other"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -20,11 +22,15 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "build": "tsc -p ./"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
     "@types/node": "^20.0.0",
-    "@types/vscode": "^1.80.0"
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@microsoft/microsoft-graph-client": "^3.0.7"
   }
 }
