@@ -11,36 +11,13 @@
     "Other"
   ],
   "main": "./out/extension.js",
-  "activationEvents": [],
   "contributes": {
     "commands": [
       {
         "command": "extension.listPlannerTasks",
         "title": "List Planner Tasks"
-      },
-      {
-        "command": "extension.readCopilotSettings",
-        "title": "Read Copilot Settings"
       }
-    ],
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "copilotSettingsContainer",
-          "title": "Copilot Settings",
-          "icon": "resources/copilot.svg"
-        }
-      ]
-    },
-    "views": {
-      "copilotSettingsContainer": [
-        {
-          "id": "copilotSettingsView",
-          "name": "Copilot Settings",
-          "icon": "$(gear)"
-        }
-      ]
-    }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -52,10 +29,6 @@
     "@types/node": "^20.0.0",
     "@types/vscode": "^1.80.0",
     "typescript": "^5.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Electric-G-Ltd/P100-PowerPlatform-ALM.git"
   },
   "dependencies": {
     "@microsoft/microsoft-graph-client": "^3.0.7"
