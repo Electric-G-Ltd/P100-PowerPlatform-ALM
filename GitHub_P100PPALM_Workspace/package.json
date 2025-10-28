@@ -11,6 +11,11 @@
     "Other"
   ],
   "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:extension.listPlannerTasks",
+    "onCommand:extension.readCopilotSettings",
+    "onView:copilotSettingsView"
+  ],
   "contributes": {
     "commands": [
       {
@@ -23,12 +28,17 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "build": "tsc -p ./"
+    "build": "tsc -p ./",
+    "package": "vsce package"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/vscode": "^1.80.0",
     "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Electric-G-Ltd/P100-PowerPlatform-ALM.git"
   },
   "dependencies": {
     "@microsoft/microsoft-graph-client": "^3.0.7"

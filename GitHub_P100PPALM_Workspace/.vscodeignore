@@ -1,0 +1,23 @@
+# Exclude test files
+**/test/**
+
+# Exclude source maps
+**/*.map
+
+# Exclude markdown and docs
+**/*.md
+docs/**
+
+# Exclude config and scripts
+.vscode/**
+.gitignore
+LICENSE
+*.yml
+*.sh
+*.ps1
+
+# Exclude dev dependencies
+node_modules/**
+
+# Exclude other non-essential files
+src/**
