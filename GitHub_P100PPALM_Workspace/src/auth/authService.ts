@@ -6,7 +6,6 @@ import * as vscode from "vscode";
  */
 export class AuthService {
   private accessToken: string | null = null;
-  private readonly clientId = "YOUR_CLIENT_ID_HERE"; // TODO: Replace with your Azure AD app client ID
   private readonly tenantId = "common"; // Or your tenant ID
   private readonly scopes = [
     "User.Read",
