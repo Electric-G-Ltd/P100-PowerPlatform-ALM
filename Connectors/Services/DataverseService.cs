@@ -64,7 +64,8 @@ namespace PowerPlatformConnector.Services
         {
             try
             {
-                _logger.LogInformation("Retrieving columns for table: {TableName}", tableName);
+                var sanitizedTableName = tableName?.Replace("\r", "").Replace("\n", "");
+                _logger.LogInformation("Retrieving columns for table: {TableName}", sanitizedTableName);
                 var token = await _authService.GetAccessTokenAsync(cancellationToken);
                 var apiUrl = $"{_config.EnvironmentUrl}/api/data/v9.2/EntityDefinitions(LogicalName='{tableName}')/Attributes";
 
@@ -86,7 +87,8 @@ namespace PowerPlatformConnector.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving columns for table {TableName}", tableName);
+                var sanitizedTableName = tableName?.Replace("\r", "").Replace("\n", "");
+                _logger.LogError(ex, "Error retrieving columns for table {TableName}", sanitizedTableName);
                 throw;
             }
         }
