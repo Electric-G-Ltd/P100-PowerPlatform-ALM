@@ -58,7 +58,7 @@ All Issues and PRs **must** have exactly **one** label from each of the followin
 - Deploy
 - Test
 - Document Process
-- Refractor
+- Refactor
 - Decommission
 - Configure
 - Sync
