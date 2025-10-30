@@ -1,4 +1,7 @@
 name: Policy - Taxonomy Labels on Pull Requests
+permissions:
+  contents: read
+  pull-requests: write
 
 on:
   pull_request:
