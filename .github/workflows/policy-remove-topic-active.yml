@@ -15,13 +15,13 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const labels = context.payload.issue.labels.map(l => l.name.toLowerCase());
-            if (labels.includes('topic:active')) {
+            const labelObj = context.payload.issue.labels.find(l => l.name.toLowerCase() === 'topic:active');
+            if (labelObj) {
               await github.rest.issues.removeLabel({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.payload.issue.number,
-                name: 'Topic:Active'
+                name: labelObj.name
               });
               console.log('Removed topic:active label from closed issue');
             } else {
