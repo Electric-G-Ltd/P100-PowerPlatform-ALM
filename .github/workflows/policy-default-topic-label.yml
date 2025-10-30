@@ -1,4 +1,6 @@
 name: Default Topic Label on Issue Creation
+permissions:
+  issues: write
 
 on:
   issues:
