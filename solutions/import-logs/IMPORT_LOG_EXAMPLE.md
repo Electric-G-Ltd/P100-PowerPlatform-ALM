@@ -179,7 +179,7 @@ Note: In a real import log, you would include an actual screenshot here showing:
 - Publisher information
 ```
 
-**Screenshot Location**: `/solutions/import-logs/screenshots/import-success-2025-10-30-v1.0.0.1.png` (example)
+**Screenshot Location**: Store screenshots in `/solutions/import-logs/` directory (e.g., `import-success-2025-10-30-v1.0.0.1.png`)
 
 ---
 
@@ -195,7 +195,7 @@ Note: In a real import log, you would include an actual screenshot here showing:
 
 - Solution Package: `/solutions/P100ElectricalAgentSuite/P100ElectricalAgentSuite_1_0_0_1.zip`
 - Related Issue: [#58 - 25P058-package-and-import-power-platform-solution](https://github.com/Electric-G-Ltd/P100-PowerPlatform-ALM/issues/58)
-- Related PR: [copilot/package-and-import-solution](https://github.com/Electric-G-Ltd/P100-PowerPlatform-ALM/pulls)
+- Related PR: Reference the actual PR number here (e.g., #59)
 - Documentation: 
   - [Solution Packaging Guide](../docs/solution-packaging-guide.md)
   - [Solution Import Guide](../docs/solution-import-guide.md)
