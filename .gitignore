@@ -24,11 +24,13 @@ $RECYCLE.BIN/
 *.orig
 *.patch
 *.diff
-*.zip
 *.7z
 *.tar
 *.gz
 *.bz2
+# Allow solution packages in the solutions directory
+*.zip
+!solutions/**/*.zip
 
 # --- Dev Container / Docker / local env ---
 .devcontainer/*.env
