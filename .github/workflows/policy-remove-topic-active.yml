@@ -1,4 +1,7 @@
 name: Remove topic:active on Issue Close
+permissions:
+  contents: read
+  issues: write
 
 on:
   issues:
