@@ -30,6 +30,7 @@ If you want to start new work:
 **Example:** `25P002-Database-Migration`
 
 **Required Fields (in body, using the Copilot Issue template):**
+
 - **Objective**: What is the goal of this work?
 - **Context**: Why is this work needed?
 - **Acceptance Criteria**: How do we know it's complete? (use checkboxes)
@@ -45,48 +46,46 @@ If you want to start new work:
 All Issues and PRs **must** have exactly **one** label from each of the following categories:
 
 ### Topic (pick one)
-- Active
-- Research
-- Power Platform ALM
+
+- 1 Topic: Active
+- 1 Topic: Power Platform ALM
+- 1 Topic: Research
 
 ### Action (pick one)
-- Raise a PR
-- Raise an Issue
-- Export Solution
-- Import Solution
-- Package Solution
-- Deploy
-- Test
-- Document Process
-- Refactor
-- Decommission
-- Configure
-- Sync
-- Archive
-- Automate
+
+- 2 Action: Archive
+- 2 Action: Automate
+- 2 Action: Configure
+- 2 Action: Decommission
+- 2 Action: Deploy
+- 2 Action: Document Process
+- 2 Action: Export Solution
+- 2 Action: Import Solution
+- 2 Action: Package Solution
+- 2 Action: Raise a PR
+- 2 Action: Raise an Issue
+- 2 Action: Refactor
+- 2 Action: Sync
+- 2 Action: Test
 
 ### Artefact (pick one)
-- Copilot Studio Actions
-- Dataverse Tables and Relationships
-- Agent Orchestration Logic
-- Power Automate Flows
-- Environmental Variables
-- Power Platform UI Forms
-- Plug In Assemblies
-- Custom Connectors
-- Web Resources
-- Documentation
-- Diagram
-- JSON Configuration
-- XML Configuration
-- GitHub Actions
-- GitHub Flows
-- GitHub Scripts
-- GitHub App
-- Powershell Automation
-- Power Platform Solution
+
+- 3 Artefact: Agent Orchestration Logic
+- 3 Artefact: Copilot Studio Action
+- 3 Artefact: Custom Connectors
+- 3 Artefact: Dataverse Tables and Relationships
+- 3 Artefact: Diagram
+- 3 Artefact: Documentation
+- 3 Artefact: Environmental Variables
+- 3 Artefact: GitHub Action
+- 3 Artefact: GitHub App
+- 3 Artefact: GitHub Flow
+- 3 Artefact: GitHub Script
+- 3 Artefact: Json Configuration
+- 3 Artefact: Plug In Assemblies
 
 **Label Policy:**
+
 - Apply exactly **one** label from each of Topic, Action, and Artefact to every Issue and PR.
 - Do **not** use more than one label in any category.
 - If a required label does not exist, Copilot/automation will pause and alert @electricgltd to add it before proceeding.
@@ -96,8 +95,9 @@ All Issues and PRs **must** have exactly **one** label from each of the followin
 This ensures labels are unique, consistent, and ready for ALM and Dataverse integration.
 
 **Example:**
+
 > Automate packaging a Power Platform Solution via GitHub Action  
-> `Topic:Active, Action:Automate, Artefact:GitHub Actions`
+> `1 Topic: Active, 2 Action: Automate, 3 Artefact: GitHub Action`
 
 ---
 

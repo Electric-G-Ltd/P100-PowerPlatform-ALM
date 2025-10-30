@@ -1,11 +1,12 @@
 # Label Taxonomy – P100 PowerPlatform ALM
 
-This document lists the only permitted labels in this repository.  
-Every Issue and PR **must** have exactly one label from each of the following categories, and no others.
+This document lists the only permitted labels in this repository.
+Every Issue and PR **must** have exactly one label from each of the following categories, using the exact format below, and no others.
 
 ---
 
 ## Topic (pick one)
+
 - 1 Topic: Active
 - 1 Topic: Power Platform ALM
 - 1 Topic: Research
@@ -13,6 +14,7 @@ Every Issue and PR **must** have exactly one label from each of the following ca
 ---
 
 ## Action (pick one)
+
 - 2 Action: Archive
 - 2 Action: Automate
 - 2 Action: Configure
@@ -31,6 +33,7 @@ Every Issue and PR **must** have exactly one label from each of the following ca
 ---
 
 ## Artefact (pick one)
+
 - 3 Artefact: Agent Orchestration Logic
 - 3 Artefact: Copilot Studio Action
 - 3 Artefact: Custom Connectors
@@ -47,6 +50,8 @@ Every Issue and PR **must** have exactly one label from each of the following ca
 
 ---
 
-**Policy:**  
+**Policy:**
+
 - No deviations or additions allowed without approval from @electricgltd.
 - Automation will block any Issue/PR that does not conform.
+- Labels must match the format exactly (e.g., `1 Topic: Active`, `2 Action: Automate`, `3 Artefact: GitHub Action`).
