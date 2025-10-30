@@ -17,46 +17,16 @@ jobs:
           script: |
             // Define label categories (exact, case-insensitive match)
             const topicLabels = [
-              'Topic:Active',
-              'Topic:Research',
-              'Topic:Power Platform ALM'
+              '1 Topic: Power Platform ALM',
+              // Add any additional Topic labels here, matching your convention
             ];
             const actionLabels = [
-              'Action:Raise a PR',
-              'Action:Raise an Issue',
-              'Action:Export Solution',
-              'Action:Import Solution',
-              'Action:Package Solution',
-              'Action:Deploy',
-              'Action:Test',
-              'Action:Document Process',
-              'Action:Refractor',
-              'Action:Decommission',
-              'Action:Configure',
-              'Action:Sync',
-              'Action:Archive',
-              'Action:Automate'
+              '2 Action: Automate',
+              // Add any additional Action labels here, matching your convention
             ];
             const artefactLabels = [
-              'Artefact:Copilot Studio Actions',
-              'Artefact:Dataverse Tables and Relationships',
-              'Artefact:Agent Orchestration Logic',
-              'Artefact:Power Automate Flows',
-              'Artefact:Environmental Variables',
-              'Artefact:Power Platform UI Forms',
-              'Artefact:Plug In Assemblies',
-              'Artefact:Custom Connectors',
-              'Artefact:Web Resources',
-              'Artefact:Documentation',
-              'Artefact:Diagram',
-              'Artefact:JSON Configuration',
-              'Artefact:XML Configuration',
-              'Artefact:GitHub Actions',
-              'Artefact:GitHub Flows',
-              'Artefact:GitHub Scripts',
-              'Artefact:GitHub App',
-              'Artefact:Powershell Automation',
-              'Artefact:Power Platform Solution'
+              '3 Artefact: GitHub Action',
+              // Add any additional Artefact labels here, matching your convention
             ];
 
             const labels = context.payload.pull_request.labels.map(l => l.name);
@@ -75,12 +45,29 @@ jobs:
             if (artefactCount !== 1) problems.push(`**Artefact** (found ${artefactCount}, expected 1)`);
 
             if (problems.length > 0) {
-              const msg = `❌ **Taxonomy Policy Violation**\n\nEvery pull request must have exactly one label from each category:\n- Topic\n- Action\n- Artefact\n\nProblems detected:\n${problems.map(p => `- ${p}`).join('\n')}\n\nPlease edit the labels so there is one and only one from each category. If a label is missing, request @electricgltd to add it.`;
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.payload.pull_request.number,
-                body: msg
-              });
-              core.setFailed('Taxonomy label requirements not met.');
-            }
+              const msg = `❌ **Taxonomy Policy Violation**
+
+
+Every pull request must have exactly one label from each category:
+- Topic
+- Action
+- Artefact
+
+if (problems.length > 0) {
+  const msg = `❌ **Taxonomy Policy Violation**
+
+Every pull request must have exactly one label from each category:
+- Topic
+- Action
+- Artefact
+
+Problems detected:
+${problems.join('\n')}`;
+  await github.rest.issues.createComment({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    issue_number: context.payload.pull_request.number,
+    body: msg
+  });
+  core.setFailed('Taxonomy label requirements not met.');
+}
