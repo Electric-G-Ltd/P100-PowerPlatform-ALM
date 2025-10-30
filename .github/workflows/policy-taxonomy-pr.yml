@@ -21,8 +21,25 @@ jobs:
               // Add any additional Topic labels here, matching your convention
             ];
             const actionLabels = [
+<<<<<<< HEAD
               '2 Action: Automate',
               // Add any additional Action labels here, matching your convention
+=======
+              'Action:Raise a PR',
+              'Action:Raise an Issue',
+              'Action:Export Solution',
+              'Action:Import Solution',
+              'Action:Package Solution',
+              'Action:Deploy',
+              'Action:Test',
+              'Action:Document Process',
+              'Action:Refactor',
+              'Action:Decommission',
+              'Action:Configure',
+              'Action:Sync',
+              'Action:Archive',
+              'Action:Automate'
+>>>>>>> cd35bc9a10a28a6e61c17194efa39e30e796af87
             ];
             const artefactLabels = [
               '3 Artefact: GitHub Action',
