@@ -21,10 +21,7 @@ jobs:
               // Add any additional Topic labels here, matching your convention
             ];
             const actionLabels = [
-<<<<<<< HEAD
               '2 Action: Automate',
-              // Add any additional Action labels here, matching your convention
-=======
               'Action:Raise a PR',
               'Action:Raise an Issue',
               'Action:Export Solution',
@@ -39,7 +36,6 @@ jobs:
               'Action:Sync',
               'Action:Archive',
               'Action:Automate'
->>>>>>> cd35bc9a10a28a6e61c17194efa39e30e796af87
             ];
             const artefactLabels = [
               '3 Artefact: GitHub Action',
@@ -64,27 +60,19 @@ jobs:
             if (problems.length > 0) {
               const msg = `❌ **Taxonomy Policy Violation**
 
+            Every pull request must have exactly one label from each category:
+            - Topic
+            - Action
+            - Artefact
 
-Every pull request must have exactly one label from each category:
-- Topic
-- Action
-- Artefact
-
-if (problems.length > 0) {
-  const msg = `❌ **Taxonomy Policy Violation**
-
-Every pull request must have exactly one label from each category:
-- Topic
-- Action
-- Artefact
-
-Problems detected:
-${problems.join('\n')}`;
-  await github.rest.issues.createComment({
-    owner: context.repo.owner,
-    repo: context.repo.repo,
-    issue_number: context.payload.pull_request.number,
-    body: msg
-  });
-  core.setFailed('Taxonomy label requirements not met.');
-}
+            Problems detected:
+            ${problems.map(p => `- ${p}`).join('\n')}`;
+              
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                body: msg
+              });
+              core.setFailed('Taxonomy label requirements not met.');
+            }
