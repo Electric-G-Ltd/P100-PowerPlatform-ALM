@@ -8,102 +8,98 @@ Thank you for contributing to this project! This guide explains how to work with
 - **Repository:** P100-PowerPlatform-ALM
 - **Full Path:** `Electric-G-Ltd/P100-PowerPlatform-ALM`
 
+---
+
 ## Quick Start
 
-### 1. Understand the One-Topic-At-A-Time Workflow
+### 1. One-Topic-At-A-Time Workflow
 
-At any given time, **only one topic is active**. Check the repository for the issue labeled `2-topic:active`.
+At any given time, **only one topic is active**. Check the repository for the issue labeled `Topic:Active`.
 
 If you want to start new work:
 
-- Verify the current active topic is complete
-- Request approval from @electricgltd to mark the new topic as `2-topic:active`
+- Ensure the current active topic is complete
+- Request approval from @electricgltd to assign `Topic:Active` to your issue
 - Begin work once approved
+
+---
 
 ### 2. Create an Issue
 
-**Naming Convention:** `25P###-Title-In-Kebab-Case`
-
+**Naming Convention:** `25P###-Title-In-Kebab-Case`  
 **Example:** `25P002-Database-Migration`
 
-**Components:**
+**Required Fields (in body, using the Copilot Issue template):**
+- **Objective**: What is the goal of this work?
+- **Context**: Why is this work needed?
+- **Acceptance Criteria**: How do we know it's complete? (use checkboxes)
+- **Deliverables**: What will be delivered?
+- **Teach-Back**: Explain the professional reasoning and what will be learned
 
-- `25` = Year (2025)
-- `P` = Project prefix
-- `###` = Sequential number
-- `Title` = Descriptive title, kebab-case
+**See:** `.github/ISSUE_TEMPLATE/copilot-task.yml` for formatting.
 
-**Issue Template:**
-Use the standardized issue template (`.github/ISSUE_TEMPLATE/copilot-task.yml`). Include:
+---
 
-- **Objective:** What is the goal of this work?
-- **Context:** Why is this work needed?
-- **Acceptance Criteria:** How do we know it's complete? (use checkboxes)
-- **Deliverables:** What will be delivered?
-- **Teach-Back:** Explain the professional reasoning and what will be learned
+## Label Taxonomy: One-Per-Category (MANDATORY)
 
-## Repo Labelling System (Expanded Taxonomy)
+All Issues and PRs **must** have exactly **one** label from each of the following categories:
 
-We now use a 5-tier metadata system for all issues and PRs, supporting cross-platform orchestration and clarity.
+### Topic (pick one)
+- Active
+- Research
+- Power Platform ALM
 
-### Tier 1: AREA (Choose one)
+### Action (pick one)
+- Raise a PR
+- Raise an Issue
+- Export Solution
+- Import Solution
+- Package Solution
+- Deploy
+- Test
+- Document Process
+- Refactor
+- Decommission
+- Configure
+- Sync
+- Archive
+- Automate
 
-- `1-area:m365-agent` — Microsoft 365 agent logic
-- `1-area:copilot-studio-agent` — Copilot Studio agent logic
-- `1-area:power-apps` — Power Apps platform logic
-- `1-area:sharepoint` — SharePoint integrations
-- `1-area:planner` — Planner orchestration and buckets
-- `1-area:dataverse` — Dataverse platform logic
-- `1-area:custom-apis` — Custom API integrations
-- `1-area:connectors` — Power Platform connectors and data connections
-- `1-area:plugins` — Custom business logic and plugins
-- `1-area:automation` — Power Automate solutions and flows
-- `1-area:web-resources` — HTML, JavaScript, CSS resources
-- `1-area:governance` — Documentation, policies, governance processes
+### Artefact (pick one)
+- Copilot Studio Actions
+- Dataverse Tables and Relationships
+- Agent Orchestration Logic
+- Power Automate Flows
+- Environmental Variables
+- Power Platform UI Forms
+- Plug In Assemblies
+- Custom Connectors
+- Web Resources
+- Documentation
+- Diagram
+- JSON Configuration
+- XML Configuration
+- GitHub Actions
+- GitHub Flows
+- GitHub Scripts
+- GitHub App
+- Powershell Automation
+- Power Platform Solution
 
-### Tier 2: TOPICS (As applicable)
+**Label Policy:**
+- Apply exactly **one** label from each of Topic, Action, and Artefact to every Issue and PR.
+- Do **not** use more than one label in any category.
+- If a required label does not exist, Copilot/automation will pause and alert @electricgltd to add it before proceeding.
+- No Issue or PR can be created until all three required labels are present.
 
-- `2-topic:active` — Currently being worked on (enforced one-at-a-time)
-- `2-topic:research` — Exploratory or research work
+**Why:**  
+This ensures labels are unique, consistent, and ready for ALM and Dataverse integration.
 
-### Tier 3: ACTIONS (As applicable)
+**Example:**
+> Automate packaging a Power Platform Solution via GitHub Action  
+> `Topic:Active, Action:Automate, Artefact:GitHub Actions`
 
-- `3-action:issue-template` — Issue needs proper structure/template completion
-- `3-action:raise-pr` — Ready to create PR
-- `3-action:export-solution` — (To be added as processes develop)
-- `3-action:import-solution` — (To be added as processes develop)
-- `3-action:package-solution` — (To be added as processes develop)
-- `3-action:review` — (To be added as processes develop)
-
-### Tier 4: LAYER (Orchestration Layer, if relevant)
-
-- `4-layer:interpretive-layer (IL)` — High-level reasoning, philosophy, assistant guidance (e.g. grounding files)
-- `4-layer:operational-layer (OL)` — Day-to-day workflows, automation, and task execution (e.g. Planner flows, job lists)
-- `4-layer:authoritative (AL)` — External standards, regulations, or official documents (e.g. BS 7671, Guidance Note 3)
-
-### Tier 5: STRUCTURAL TYPE (Artefact Type, if relevant)
-
-- `5-type:workflow-file (WF)` — File that defines operational steps or automation (e.g. Power Automate flows)
-- `5-type:primary-source-document (PSD)` — Authoritative external/official document (e.g. NICEIC guidance)
-- `5-type:procedural (PRO)` — Step-by-step workflow or automation logic (e.g. “when X happens, do Y”)
-- `5-type:reference (REF)` — Cross-reference to another assistant, file, or section
-- `5-type:agent-guide (AG)` — Section that defines how an assistant behaves or interprets information
-
-**Usage Guidance**
-
-- Always apply Tiers 1–3 for GitHub automation and board filtering.
-- Tiers 4–5 are optional, for orchestration/governance context and cross-system alignment.
-- Do not mirror SharePoint metadata 1:1—only add labels that improve GitHub automation and clarity.
-- Priority remains a field, not a label (see previous standards).
-- See label descriptions above for guidance.
-
-**Example Issue Labels:**
-
-Scenario: Creating a workflow file for Planner integration, governed by authoritative standards:
-
-```
-1-area:planner, 2-topic:active, 3-action:issue-template, 4-layer:authoritative, 5-type:workflow-file
-```
+---
 
 ## 3. Create a Pull Request
 
@@ -114,6 +110,10 @@ Scenario: Creating a workflow file for Planner integration, governed by authorit
 - **PR title:** Same as issue name: `25P###-Title-In-Kebab-Case`
 - **PR description:** Must reference the active issue with `Closes #X`
 - **Template:** Use the PR template at `governance/pull_request_template.md`
+
+### Labels
+
+- Apply exactly one label from each: Topic, Action, Artefact (see taxonomy above).
 
 ### Pipeline Checks
 
@@ -159,6 +159,8 @@ CodeQL is GitHub's automated security and code quality tool. If CodeQL flags iss
 
 For detailed guidance, see **Issue #43** (25P023): CodeQL and CI/CD Pipeline Code Suggestion Change Process
 
+---
+
 ### Teach-Back Requirement
 
 Every PR must include a comprehensive Teach-Back section in the description. Use the template:
@@ -183,3 +185,25 @@ Every PR must include a comprehensive Teach-Back section in the description. Use
 - Pro: [Benefit]
 - Con: [Cost]
 ```
+
+---
+
+## Automation & Dataverse Integration
+
+- Copilot/automation will enforce label presence and correctness for every Issue and PR.
+- If a label is missing, Copilot will pause and request @electricgltd to add it to the taxonomy.
+- All metadata and fields must be exportable for Dataverse.
+- @electricgltd’s role is to review and approve, not to manually assign labels or fix metadata.
+
+---
+
+## Policy: No Exceptions
+
+- No Issue or PR can proceed without exactly one Topic, Action, and Artefact label.
+- All other required fields must be completed as specified.
+
+---
+
+## Questions?
+
+Ask @electricgltd or review the full set of governance files in the `/governance` directory.

@@ -1,0 +1,90 @@
+name: Policy - Taxonomy Labels on Pull Requests
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, edited, synchronize]
+
+jobs:
+  enforce-taxonomy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR Labels for Taxonomy Compliance
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Define label categories (exact, case-insensitive match)
+            const topicLabels = [
+              '1 Topic: Power Platform ALM',
+              // Add any additional Topic labels here, matching your convention
+            ];
+            const actionLabels = [
+<<<<<<< HEAD
+              '2 Action: Automate',
+              // Add any additional Action labels here, matching your convention
+=======
+              'Action:Raise a PR',
+              'Action:Raise an Issue',
+              'Action:Export Solution',
+              'Action:Import Solution',
+              'Action:Package Solution',
+              'Action:Deploy',
+              'Action:Test',
+              'Action:Document Process',
+              'Action:Refactor',
+              'Action:Decommission',
+              'Action:Configure',
+              'Action:Sync',
+              'Action:Archive',
+              'Action:Automate'
+>>>>>>> cd35bc9a10a28a6e61c17194efa39e30e796af87
+            ];
+            const artefactLabels = [
+              '3 Artefact: GitHub Action',
+              // Add any additional Artefact labels here, matching your convention
+            ];
+
+            const labels = context.payload.pull_request.labels.map(l => l.name);
+
+            function countMatching(labels, category) {
+              return labels.filter(l => category.some(c => c.toLowerCase() === l.toLowerCase())).length;
+            }
+
+            const topicCount = countMatching(labels, topicLabels);
+            const actionCount = countMatching(labels, actionLabels);
+            const artefactCount = countMatching(labels, artefactLabels);
+
+            let problems = [];
+            if (topicCount !== 1) problems.push(`**Topic** (found ${topicCount}, expected 1)`);
+            if (actionCount !== 1) problems.push(`**Action** (found ${actionCount}, expected 1)`);
+            if (artefactCount !== 1) problems.push(`**Artefact** (found ${artefactCount}, expected 1)`);
+
+            if (problems.length > 0) {
+              const msg = `❌ **Taxonomy Policy Violation**
+
+
+Every pull request must have exactly one label from each category:
+- Topic
+- Action
+- Artefact
+
+if (problems.length > 0) {
+  const msg = `❌ **Taxonomy Policy Violation**
+
+Every pull request must have exactly one label from each category:
+- Topic
+- Action
+- Artefact
+
+Problems detected:
+${problems.join('\n')}`;
+  await github.rest.issues.createComment({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    issue_number: context.payload.pull_request.number,
+    body: msg
+  });
+  core.setFailed('Taxonomy label requirements not met.');
+}
