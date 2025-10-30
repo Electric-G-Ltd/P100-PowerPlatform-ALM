@@ -6,6 +6,8 @@ on:
 
 jobs:
   enforce-taxonomy:
+    permissions:
+      issues: write
     runs-on: ubuntu-latest
     steps:
       - name: Check Issue Labels for Taxonomy Compliance
