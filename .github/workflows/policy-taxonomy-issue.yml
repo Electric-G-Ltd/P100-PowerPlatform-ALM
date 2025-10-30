@@ -15,47 +15,42 @@ jobs:
         with:
           script: |
             // Define label categories (exact, case-insensitive match)
+            // Canonical taxonomy from governance/label_taxonomy.md
             const topicLabels = [
-              'Topic:Active',
-              'Topic:Research',
-              'Topic:Power Platform ALM'
+              '1 Topic: Active',
+              '1 Topic: Power Platform ALM',
+              '1 Topic: Research'
             ];
             const actionLabels = [
-              'Action:Raise a PR',
-              'Action:Raise an Issue',
-              'Action:Export Solution',
-              'Action:Import Solution',
-              'Action:Package Solution',
-              'Action:Deploy',
-              'Action:Test',
-              'Action:Document Process',
-              'Action:Refactor',
-              'Action:Decommission',
-              'Action:Configure',
-              'Action:Sync',
-              'Action:Archive',
-              'Action:Automate'
+              '2 Action: Archive',
+              '2 Action: Automate',
+              '2 Action: Configure',
+              '2 Action: Decommission',
+              '2 Action: Deploy',
+              '2 Action: Document Process',
+              '2 Action: Export Solution',
+              '2 Action: Import Solution',
+              '2 Action: Package Solution',
+              '2 Action: Raise a PR',
+              '2 Action: Raise an Issue',
+              '2 Action: Refactor',
+              '2 Action: Sync',
+              '2 Action: Test'
             ];
             const artefactLabels = [
-              'Artefact:Copilot Studio Actions',
-              'Artefact:Dataverse Tables and Relationships',
-              'Artefact:Agent Orchestration Logic',
-              'Artefact:Power Automate Flows',
-              'Artefact:Environmental Variables',
-              'Artefact:Power Platform UI Forms',
-              'Artefact:Plug In Assemblies',
-              'Artefact:Custom Connectors',
-              'Artefact:Web Resources',
-              'Artefact:Documentation',
-              'Artefact:Diagram',
-              'Artefact:JSON Configuration',
-              'Artefact:XML Configuration',
-              'Artefact:GitHub Actions',
-              'Artefact:GitHub Flows',
-              'Artefact:GitHub Scripts',
-              'Artefact:GitHub App',
-              'Artefact:Powershell Automation',
-              'Artefact:Power Platform Solution'
+              '3 Artefact: Agent Orchestration Logic',
+              '3 Artefact: Copilot Studio Action',
+              '3 Artefact: Custom Connectors',
+              '3 Artefact: Dataverse Tables and Relationships',
+              '3 Artefact: Diagram',
+              '3 Artefact: Documentation',
+              '3 Artefact: Environmental Variables',
+              '3 Artefact: GitHub Action',
+              '3 Artefact: GitHub App',
+              '3 Artefact: GitHub Flow',
+              '3 Artefact: GitHub Script',
+              '3 Artefact: Json Configuration',
+              '3 Artefact: Plug In Assemblies'
             ];
 
             const labels = context.payload.issue.labels.map(l => l.name);
@@ -73,20 +68,21 @@ jobs:
             if (actionCount !== 1) problems.push(`**Action** (found ${actionCount}, expected 1)`);
             if (artefactCount !== 1) problems.push(`**Artefact** (found ${artefactCount}, expected 1)`);
 
-            if (problems.length > 0) {
-              const msg = `❌ **Taxonomy Policy Violation**\n\nEvery issue must have exactly one label from each category:\n- Topic\n- Action\n- Artefact\n\nProblems detected:\n${problems.map(p => `- ${p}`).join('\n')}\n\nPlease edit the labels so there is one and only one from each category. If a label is missing, request @electricgltd to add it.`;
+            // Check for any extra (invalid) labels
+            const allAllowed = [...topicLabels, ...actionLabels, ...artefactLabels];
+            const invalidLabels = labels.filter(l => !allAllowed.includes(l));
+
+            if (problems.length > 0 || invalidLabels.length > 0) {
+              let msg = `❌ **Taxonomy Policy Violation**\n\nEvery issue must have exactly one label from each category:\n- Topic\n- Action\n- Artefact\n\nProblems detected:\n${problems.map(p => `- ${p}`).join('\n')}`;
+              if (invalidLabels.length > 0) {
+                msg += `\n- Invalid label(s) found: ${invalidLabels.join(', ')}. Only use labels from the approved taxonomy.`;
+              }
+              msg += `\n\nPlease edit the labels so there is one and only one from each category. If a label is missing, request @electricgltd to add it.`;
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.payload.issue.number,
                 body: msg
               });
-              // Optionally, add a triage label:
-              // await github.rest.issues.addLabels({
-              //   owner: context.repo.owner,
-              //   repo: context.repo.repo,
-              //   issue_number: context.payload.issue.number,
-              //   labels: ['needs-triage']
-              // });
               core.setFailed('Taxonomy label requirements not met.');
             }
