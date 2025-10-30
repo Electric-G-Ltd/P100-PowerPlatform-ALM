@@ -1,0 +1,90 @@
+name: Policy - Taxonomy Labels on Issues
+
+on:
+  issues:
+    types: [opened, labeled, unlabeled, edited]
+
+jobs:
+  enforce-taxonomy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Issue Labels for Taxonomy Compliance
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Define label categories (exact, case-insensitive match)
+            const topicLabels = [
+              'Topic:Active',
+              'Topic:Research',
+              'Topic:Power Platform ALM'
+            ];
+            const actionLabels = [
+              'Action:Raise a PR',
+              'Action:Raise an Issue',
+              'Action:Export Solution',
+              'Action:Import Solution',
+              'Action:Package Solution',
+              'Action:Deploy',
+              'Action:Test',
+              'Action:Document Process',
+              'Action:Refractor',
+              'Action:Decommission',
+              'Action:Configure',
+              'Action:Sync',
+              'Action:Archive',
+              'Action:Automate'
+            ];
+            const artefactLabels = [
+              'Artefact:Copilot Studio Actions',
+              'Artefact:Dataverse Tables and Relationships',
+              'Artefact:Agent Orchestration Logic',
+              'Artefact:Power Automate Flows',
+              'Artefact:Environmental Variables',
+              'Artefact:Power Platform UI Forms',
+              'Artefact:Plug In Assemblies',
+              'Artefact:Custom Connectors',
+              'Artefact:Web Resources',
+              'Artefact:Documentation',
+              'Artefact:Diagram',
+              'Artefact:JSON Configuration',
+              'Artefact:XML Configuration',
+              'Artefact:GitHub Actions',
+              'Artefact:GitHub Flows',
+              'Artefact:GitHub Scripts',
+              'Artefact:GitHub App',
+              'Artefact:Powershell Automation',
+              'Artefact:Power Platform Solution'
+            ];
+
+            const labels = context.payload.issue.labels.map(l => l.name);
+
+            function countMatching(labels, category) {
+              return labels.filter(l => category.some(c => c.toLowerCase() === l.toLowerCase())).length;
+            }
+
+            const topicCount = countMatching(labels, topicLabels);
+            const actionCount = countMatching(labels, actionLabels);
+            const artefactCount = countMatching(labels, artefactLabels);
+
+            let problems = [];
+            if (topicCount !== 1) problems.push(`**Topic** (found ${topicCount}, expected 1)`);
+            if (actionCount !== 1) problems.push(`**Action** (found ${actionCount}, expected 1)`);
+            if (artefactCount !== 1) problems.push(`**Artefact** (found ${artefactCount}, expected 1)`);
+
+            if (problems.length > 0) {
+              const msg = `❌ **Taxonomy Policy Violation**\n\nEvery issue must have exactly one label from each category:\n- Topic\n- Action\n- Artefact\n\nProblems detected:\n${problems.map(p => `- ${p}`).join('\n')}\n\nPlease edit the labels so there is one and only one from each category. If a label is missing, request @electricgltd to add it.`;
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                body: msg
+              });
+              // Optionally, add a triage label:
+              // await github.rest.issues.addLabels({
+              //   owner: context.repo.owner,
+              //   repo: context.repo.repo,
+              //   issue_number: context.payload.issue.number,
+              //   labels: ['needs-triage']
+              // });
+              core.setFailed('Taxonomy label requirements not met.');
+            }

@@ -1,0 +1,33 @@
+name: Default Topic Label on Issue Creation
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-default-topic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Topic:Power Platform ALM if no topic label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // List of valid topic labels (case-insensitive)
+            const topicLabels = [
+              'Topic:Active',
+              'Topic:Research',
+              'Topic:Power Platform ALM'
+            ];
+            const labels = context.payload.issue.labels.map(l => l.name.toLowerCase());
+            const hasTopic = topicLabels.some(tl => labels.includes(tl.toLowerCase()));
+            if (!hasTopic) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                labels: ['Topic:Power Platform ALM']
+              });
+              console.log('Added Topic:Power Platform ALM as default topic label');
+            } else {
+              console.log('Issue already has a topic label');
+            }
