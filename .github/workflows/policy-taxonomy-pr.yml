@@ -30,7 +30,7 @@ jobs:
               'Action:Deploy',
               'Action:Test',
               'Action:Document Process',
-              'Action:Refractor',
+              'Action:Refactor',
               'Action:Decommission',
               'Action:Configure',
               'Action:Sync',
