@@ -1,26 +1,30 @@
 {
-  // Recommended extensions for this workspace (good for VS Code Insiders profile)
-  "recommendations": [
-    // Core development
-    "ms-dotnettools.csharp",
-    "ms-vscode.powershell",
-    "ms-vscode.vscode-typescript-next",
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
-    "eamodio.gitlens",
-    "ms-azuretools.vscode-docker",
-    "ms-vscode-remote.remote-containers",
-    "visualstudioexptteam.vscodeintellicode",
-    // Planner, Dataverse, Graph API
-    "humao.rest-client", // REST Client by Huachao Mao
-    "rangav.vscode-thunder-client", // Thunder Client
-    "microsoft-IsvExpTools.powerplatform-vscode", // Power Platform Tools (Microsoft)
-    "microsoft-IsvExpTools.powerapps-checker", // Power Apps Checker
-    "msjsdiag.debugger-for-chrome", // Debugger for Chrome
-    "msjsdiag.debugger-for-edge", // Debugger for Edge
-    "ms-vscode.azure-account", // Azure Account
-    // Productivity
-    "gencay.vscode-json-to-csv" // JSON to CSV
-  ],
-  "unwantedRecommendations": []
+    "recommendations": [
+        "ms-dotnettools.csharp",
+        "davidanson.vscode-markdownlint",
+        "redhat.vscode-yaml",
+        "dotjoshjohnson.json-tools",
+        "tamasfe.even-better-toml",
+        "github.vscode-github-actions",
+        "jbockle.format-files",
+        "editorconfig.editorconfig",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "ms-vscode.powershell",
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        "visualstudioexptteam.vscodeintellicode",
+        "humao.rest-client",
+        "rangav.vscode-thunder-client",
+        "microsoft-IsvExpTools.powerplatform-vscode",
+        "microsoft-IsvExpTools.powerapps-checker",
+        "msjsdiag.debugger-for-chrome",
+        "msjsdiag.debugger-for-edge",
+        "ms-vscode.azure-account",
+        "gencay.vscode-json-to-csv"
+    ],
+    "unwantedRecommendations": []
 }

@@ -1,36 +1,41 @@
 {
-  "name": "p100-vscode-extension-sdk",
-  "displayName": "P100 VS Code Extension SDK",
-  "description": "Modular SDK for VS Code customization and Microsoft Graph API integration.",
-  "version": "0.0.1",
-  "publisher": "electric-g-ltd",
-  "engines": {
-    "vscode": "^1.80.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "extension.listPlannerTasks",
-        "title": "List Planner Tasks"
-      }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "build": "tsc -p ./"
-  },
-  "devDependencies": {
-    "@types/node": "^20.0.0",
-    "@types/vscode": "^1.80.0",
-    "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "@microsoft/microsoft-graph-client": "^3.0.7"
-  }
+    "name": "p100-vscode-extension-sdk",
+    "displayName": "P100 VS Code Extension SDK",
+    "description": "Modular SDK for VS Code customization and Microsoft Graph API integration.",
+    "version": "0.0.1",
+    "publisher": "electric-g-ltd",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.listPlannerTasks",
+                "title": "List Planner Tasks"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "build": "tsc -p ./",
+        "lint": "eslint . --ext .ts,.js"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.38.0",
+        "@types/node": "^20.0.0",
+        "@types/vscode": "^1.80.0",
+        "@typescript-eslint/eslint-plugin": "^8.46.2",
+        "@typescript-eslint/parser": "^8.46.2",
+        "eslint": "^9.38.0",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "@microsoft/microsoft-graph-client": "^3.0.7"
+    }
 }
