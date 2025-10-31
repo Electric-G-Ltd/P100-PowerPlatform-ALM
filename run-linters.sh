@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Run ESLint (JS/TS)
 echo "Running ESLint (JS/TS)..."
