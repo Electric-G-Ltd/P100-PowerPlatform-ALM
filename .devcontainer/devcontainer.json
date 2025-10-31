@@ -4,28 +4,14 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash",
-        // mirror workspace settings for Insiders and non-Insiders parity
-        "terminal.integrated.defaultProfile.linux": "bash",
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "typescript.tsdk": "node_modules/typescript/lib",
-        "csharp.suppressDotnetInstallWarning": true
+        "terminal.integrated.shell.linux": "/bin/bash"
       },
       "extensions": [
         "ms-dotnettools.csharp",
         "ms-vscode.powershell",
-        "ms-vscode.vscode-typescript-next",
-        "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint",
-        "eamodio.gitlens",
-        "ms-azuretools.vscode-docker",
-        "ms-vscode-remote.remote-containers",
-        "visualstudioexptteam.vscodeintellicode"
+        "ms-vscode.vscode-typescript-next"
       ]
     }
   },
-    // verify dotnet and typescript are available, install workspace node deps if present, and restore solution dependencies
-    "postCreateCommand": "bash .devcontainer/smoke-test.sh",
-  "remoteUser": "vscode"
+  "postCreateCommand": "dotnet --version && tsc --version"
 }
