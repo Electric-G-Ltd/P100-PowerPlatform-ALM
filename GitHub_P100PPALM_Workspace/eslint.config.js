@@ -4,6 +4,9 @@ import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 
 export default [
+    {
+        ignores: ["out/**", "dist/**"],
+    },
     js.configs.recommended,
     {
         files: ["**/*.ts", "**/*.tsx"],
