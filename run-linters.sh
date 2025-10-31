@@ -34,10 +34,10 @@ fi
 
 # Run dotnet-format (C#)
 echo "Running dotnet-format (C#)..."
-if command -v dotnet-format >/dev/null 2>&1; then
+if command -v dotnet >/dev/null 2>&1; then
   dotnet format
 else
-  echo "dotnet-format not found. Skipping C# lint."
+  echo "dotnet not found. Skipping C# lint."
 fi
 
 # Run jsonlint (JSON)
