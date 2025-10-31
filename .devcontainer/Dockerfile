@@ -8,14 +8,7 @@ RUN apt-get update && \
     apt-get install -y nodejs && \
     npm install -g typescript
 
-# Install PowerShell (add Microsoft package repository then install)
-RUN apt-get update && \
-    apt-get install -y wget apt-transport-https gnupg ca-certificates && \
-    wget -q https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O /tmp/packages-microsoft-prod.deb && \
-    dpkg -i /tmp/packages-microsoft-prod.deb && \
-    rm /tmp/packages-microsoft-prod.deb && \
-    apt-get update && \
-    apt-get install -y powershell && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+# Install PowerShell
+RUN apt-get install -y powershell
 
 WORKDIR /workspace
