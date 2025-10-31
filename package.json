@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "eslint": "^9.38.0",
     "generator-code": "^1.11.13"
   },
   "dependencies": {
