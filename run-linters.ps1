@@ -35,10 +35,10 @@ if (Get-Command markdownlint -ErrorAction SilentlyContinue) {
 }
 
 Write-Host "Running dotnet-format (C#)..."
-if (Get-Command dotnet-format -ErrorAction SilentlyContinue) {
+if (Get-Command dotnet -ErrorAction SilentlyContinue) {
     dotnet format
 } else {
-    Write-Host "dotnet-format not found. Skipping C# lint."
+    Write-Host "dotnet not found. Skipping C# lint."
 }
 
 Write-Host "Running jsonlint (JSON)..."
