@@ -1,0 +1,12 @@
+<botcomponent schemaname="luthien_agent.topic.CopilotAgentBuilderAgents_iMobDysNeOJ3fDGulHVk1">
+  <category>Authoritative</category>
+  <componenttype>16</componenttype>
+  <description>This knowledge source provides information found in Copilot Agent Builder Agents SharePoint.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Copilot Agent Builder Agents</name>
+  <parentbotid>
+    <schemaname>luthien_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

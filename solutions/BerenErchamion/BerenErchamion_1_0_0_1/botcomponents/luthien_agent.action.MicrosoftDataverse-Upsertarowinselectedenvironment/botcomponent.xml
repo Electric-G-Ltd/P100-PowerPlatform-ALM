@@ -1,0 +1,10 @@
+<botcomponent schemaname="luthien_agent.action.MicrosoftDataverse-Upsertarowinselectedenvironment">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Microsoft Dataverse - Upsert a row in selected environment</name>
+  <parentbotid>
+    <schemaname>luthien_agent</schemaname>
+  </parentbotid>
+  <statecode>1</statecode>
+  <statuscode>2</statuscode>
+</botcomponent>

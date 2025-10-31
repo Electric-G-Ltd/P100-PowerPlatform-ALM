@@ -1,0 +1,38 @@
+{
+  "$kind": "BotConfiguration",
+  "channels": [
+    {
+      "$kind": "ChannelDefinition",
+      "channelId": "MsTeams"
+    }
+  ],
+  "settings": {
+    "GenerativeActionsEnabled": true
+  },
+  "isAgentConnectable": true,
+  "gPTSettings": {
+    "$kind": "GPTSettings",
+    "defaultSchemaName": "luthien_agent.gpt.default"
+  },
+  "isLightweightBot": false,
+  "aISettings": {
+    "$kind": "AISettings",
+    "useModelKnowledge": false,
+    "isFileAnalysisEnabled": true,
+    "isSemanticSearchEnabled": true,
+    "contentModeration": "High",
+    "optInUseLatestModels": false
+  },
+  "recognizer": {
+    "$kind": "GenerativeAIRecognizer"
+  },
+  "analyticsSettings": {
+    "$kind": "AnalyticsSettings",
+    "roiCalculation": {
+      "$kind": "SessionBasedRoiCalculationSettings",
+      "currencyCode": "GBP",
+      "savedCost": 2,
+      "savedTimeInSeconds": 0
+    }
+  }
+}

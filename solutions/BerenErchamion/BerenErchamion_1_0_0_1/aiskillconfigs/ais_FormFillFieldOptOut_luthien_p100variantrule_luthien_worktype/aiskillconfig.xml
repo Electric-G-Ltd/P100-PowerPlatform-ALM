@@ -1,0 +1,15 @@
+<aiskillconfig uniquename="ais_FormFillFieldOptOut_luthien_p100variantrule_luthien_worktype">
+  <aiskill>FormFillFieldOptOut</aiskill>
+  <attribute>
+    <entityid.logicalname>luthien_p100variantrule</entityid.logicalname>
+    <logicalname>luthien_worktype</logicalname>
+  </attribute>
+  <description>luthien_P100VariantRule - Work Type Form fill opt out</description>
+  <entity>
+    <logicalname>luthien_p100variantrule</logicalname>
+  </entity>
+  <iscustomizable>1</iscustomizable>
+  <scope>1</scope>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</aiskillconfig>

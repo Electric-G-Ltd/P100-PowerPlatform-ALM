@@ -1,0 +1,1 @@
+luthien_netcost: =luthien_purchasebc*(1-luthien_discount)

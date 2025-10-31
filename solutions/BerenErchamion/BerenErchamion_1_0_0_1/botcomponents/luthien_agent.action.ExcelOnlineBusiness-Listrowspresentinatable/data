@@ -1,0 +1,105 @@
+kind: TaskDialog
+response:
+  activity:
+  mode: Generated
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: source
+
+modelDisplayName: List rows present in a table
+modelDescription: List rows present in a table.
+outputs:
+  - propertyName: sensitivityLabelInfo
+    name: sensitivityLabelInfo
+
+  - propertyName: value
+    name: value
+    description: List of Items
+
+action:
+  kind: InvokeConnectorTaskAction
+  connectionReference: luthien_agent.shared_excelonlinebusiness.cb576311f98f427a9881212dfd290f1f
+  connectionProperties:
+    mode: Invoker
+
+  operationId: GetItems
+  dynamicOutputSchema:
+    kind: Record
+    properties:
+      sensitivityLabelInfo:
+        order: 1
+        type:
+          kind: Table
+          properties:
+            color:
+              displayName: color
+              description: SensitivityLabel color.
+              order: 5
+              type: String
+
+            displayName:
+              displayName: displayName
+              description: SensitivityLabel displayName info
+              order: 2
+              type: String
+
+            isEnabled:
+              displayName: isEnabled
+              description: Whether  SensitivityLabel is Enabled.
+              order: 7
+              type: Boolean
+
+            isEncrypted:
+              displayName: isEncrypted
+              description: " is  SensitivityLabel Encrypted."
+              order: 6
+              type: Boolean
+
+            isParent:
+              displayName: isParent
+              description: Whether  SensitivityLabel is Parent.
+              order: 8
+              type: Boolean
+
+            name:
+              displayName: name
+              description: SensitivityLabel name.
+              order: 1
+              type: String
+
+            parentSensitivityLabelId:
+              displayName: parentSensitivityLabelId
+              description: Parent  SensitivityLabel Id.
+              order: 9
+              type: String
+
+            priority:
+              displayName: priority
+              description: SensitivityLabel priority.
+              order: 4
+              type: Number
+
+            sensitivityLabelId:
+              displayName: sensitivityLabelId
+              description: SensitivityLabel Id.
+              order: 0
+              type: String
+
+            tooltip:
+              displayName: tooltip
+              description: SensitivityLabel details on tooltip.
+              order: 3
+              type: String
+
+      value:
+        description: List of Items
+        order: 0
+        type:
+          kind: Table
+          properties:
+            dynamicProperties:
+              order: 0
+              type: Any
+
+outputMode: All

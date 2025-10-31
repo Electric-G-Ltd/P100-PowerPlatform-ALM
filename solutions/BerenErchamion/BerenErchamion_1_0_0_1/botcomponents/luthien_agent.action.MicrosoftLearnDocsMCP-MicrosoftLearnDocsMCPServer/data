@@ -1,0 +1,12 @@
+kind: TaskDialog
+modelDisplayName: Microsoft Learn Docs MCP Server
+modelDescription: MCP Server to search Microsoft Learn content
+action:
+  kind: InvokeExternalAgentTaskAction
+  connectionReference: luthien_agent.shared_microsoftlearndocsmcpserver.64116bfad65d4625b714fe4970bdd984
+  connectionProperties:
+    mode: Invoker
+
+  operationDetails:
+    kind: ModelContextProtocolMetadata
+    operationId: microsoft_docs_search

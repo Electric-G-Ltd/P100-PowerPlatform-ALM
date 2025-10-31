@@ -1,0 +1,11 @@
+<botcomponent schemaname="luthien_agent.gpt.default">
+  <componenttype>15</componenttype>
+  <description>Supports users working in across all channels by answering questions and guiding them to helpful resources when needed.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Support Assistant</name>
+  <parentbotid>
+    <schemaname>luthien_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

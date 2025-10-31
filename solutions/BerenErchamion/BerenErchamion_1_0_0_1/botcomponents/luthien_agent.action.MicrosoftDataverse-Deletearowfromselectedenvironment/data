@@ -1,0 +1,15 @@
+kind: TaskDialog
+modelDisplayName: Delete a row from selected environment
+modelDescription: Delete a row from a table in a Power Platform environment.
+outputs:
+  - propertyName: Response
+
+action:
+  kind: InvokeConnectorTaskAction
+  connectionReference: luthien_agent.shared_commondataserviceforapps.e8f300b8ab7e4e5e8a8e8443ab6ee002
+  connectionProperties:
+    mode: Invoker
+
+  operationId: DeleteRecordWithOrganization
+
+outputMode: All

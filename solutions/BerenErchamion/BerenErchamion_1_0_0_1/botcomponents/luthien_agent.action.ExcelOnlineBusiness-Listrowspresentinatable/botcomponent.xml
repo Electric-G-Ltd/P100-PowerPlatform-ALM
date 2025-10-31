@@ -1,0 +1,10 @@
+<botcomponent schemaname="luthien_agent.action.ExcelOnlineBusiness-Listrowspresentinatable">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Excel Online (Business) - List rows present in a table</name>
+  <parentbotid>
+    <schemaname>luthien_agent</schemaname>
+  </parentbotid>
+  <statecode>1</statecode>
+  <statuscode>2</statuscode>
+</botcomponent>

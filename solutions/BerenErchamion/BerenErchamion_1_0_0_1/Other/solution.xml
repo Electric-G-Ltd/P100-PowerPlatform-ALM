@@ -1,0 +1,131 @@
+<ImportExportXml version="9.2.25101.151" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25101.151" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25101.00151">
+  <SolutionManifest>
+    <UniqueName>BerenErchamion</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Beren Erchamion" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.1</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>Beren</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="beren" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description description="Lets start a fresh" languagecode="1033" />
+      </Descriptions>
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>luthien</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>13941</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="account" behavior="2" />
+      <RootComponent type="1" schemaName="businessunit" behavior="1" />
+      <RootComponent type="1" schemaName="contact" behavior="2" />
+      <RootComponent type="1" schemaName="entity" behavior="1" />
+      <RootComponent type="1" schemaName="fieldsecurityprofile" behavior="1" />
+      <RootComponent type="1" schemaName="luthien_p100acimcu" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100assemblytemplate" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100circuit" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100disboardconfig" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100endpointconfig" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100labourrates" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100labourrole" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100material" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100matgroup" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100mtu" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100pricingpolicy" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100project" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100projectcompliancedocument" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100quantity" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100taskunit" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100timesheet" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100unitconversion" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100variantmaster" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_p100variantrule" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_q4p100fix" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_q4p100jobtype" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_q4p100uofm" behavior="0" />
+      <RootComponent type="1" schemaName="luthien_q4p100worktype" behavior="0" />
+      <RootComponent type="1" schemaName="luthien__25q4p100endpoint" behavior="0" />
+      <RootComponent type="1" schemaName="organization" behavior="1" />
+      <RootComponent type="1" schemaName="position" behavior="1" />
+      <RootComponent type="1" schemaName="role" behavior="1" />
+      <RootComponent type="1" schemaName="solution" behavior="1" />
+      <RootComponent type="1" schemaName="systemuser" behavior="1" />
+      <RootComponent type="1" schemaName="team" behavior="1" />
+      <RootComponent type="9" schemaName="luthien_dimension" behavior="0" />
+      <RootComponent type="9" schemaName="luthien_roundingrules" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="account" displayName="Account" parentSchemaName="" solution="System (5.0)" />
+        <Dependent type="1" schemaName="account" displayName="Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="contact" displayName="Contact" parentSchemaName="" solution="msdynce_PortalPrivacyExtensions (9.2.10.0)" />
+        <Dependent type="1" schemaName="contact" displayName="Contact" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>
