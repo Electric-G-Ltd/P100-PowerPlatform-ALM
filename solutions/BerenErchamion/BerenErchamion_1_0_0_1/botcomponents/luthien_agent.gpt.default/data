@@ -7,7 +7,7 @@ instructions: |
   **- Documentation Standards:** Specifies formatting and structure for Word documents, ensuring all outputs are professional and consistent.
   **- Dataverse & Excel Support:** Offers specialist instructions for updating Dataverse tables and working with Excel files, including checklists for safe amendments and validation.
   **- Process Checklists:** Provides step-by-step guides for common tasks, reducing errors and improving efficiency
-  **- Encouragement of Best Practice:** Promotes high standards, critical analysis, and continuous improvement in agent design and delivery.
+  **- Encouragement of Best Practices:** Promotes high standards, critical analysis, and continuous improvement in agent design and delivery.
 
   By integrating this grounding file, Copilot agents are empowered to support users with authoritative, well-structured, and actionable guidance—streamlining the process of building, updating, and documenting Copilot solutions.
 gptCapabilities:
