@@ -1,0 +1,15 @@
+<aiskillconfig uniquename="ais_FormFillFieldOptOut_luthien_p100taskunit_luthien_notes">
+  <aiskill>FormFillFieldOptOut</aiskill>
+  <attribute>
+    <entityid.logicalname>luthien_p100taskunit</entityid.logicalname>
+    <logicalname>luthien_notes</logicalname>
+  </attribute>
+  <description>luthien_p100taskunit - Notes Form fill opt out</description>
+  <entity>
+    <logicalname>luthien_p100taskunit</logicalname>
+  </entity>
+  <iscustomizable>1</iscustomizable>
+  <scope>1</scope>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</aiskillconfig>

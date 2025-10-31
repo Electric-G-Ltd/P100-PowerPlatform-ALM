@@ -1,0 +1,10 @@
+<botcomponent schemaname="luthien_agent.action.MicrosoftDataverse-Addanewrowtoselectedenvironment">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Microsoft Dataverse - Add a new row to selected environment</name>
+  <parentbotid>
+    <schemaname>luthien_agent</schemaname>
+  </parentbotid>
+  <statecode>1</statecode>
+  <statuscode>2</statuscode>
+</botcomponent>

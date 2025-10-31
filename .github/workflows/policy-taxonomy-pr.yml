@@ -15,8 +15,11 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            # This script block must be valid JavaScript, but the YAML must be valid as well.
-            # The previous content was correct for github-script, but YAML errors may be due to indentation or invalid characters.
-            # Ensure the script is a valid multi-line string and not interpreted as YAML mappings.
-            // ...existing script content as above...
-            // (No YAML syntax errors should occur as long as the script is under script: | and indented properly)
+            ({github, context, core}) => {
+              const requiredLabels = ['taxonomy:approved'];
+              const prLabels = context.payload.pull_request.labels.map(label => label.name);
+              const missing = requiredLabels.filter(label => !prLabels.includes(label));
+              if (missing.length > 0) {
+                core.setFailed(`Missing required taxonomy label(s): ${missing.join(', ')}`);
+              }
+            }

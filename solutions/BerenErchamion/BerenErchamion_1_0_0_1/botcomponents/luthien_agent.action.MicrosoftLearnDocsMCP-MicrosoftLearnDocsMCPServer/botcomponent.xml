@@ -1,0 +1,10 @@
+<botcomponent schemaname="luthien_agent.action.MicrosoftLearnDocsMCP-MicrosoftLearnDocsMCPServer">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Microsoft Learn Docs MCP - Microsoft Learn Docs MCP Server</name>
+  <parentbotid>
+    <schemaname>luthien_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

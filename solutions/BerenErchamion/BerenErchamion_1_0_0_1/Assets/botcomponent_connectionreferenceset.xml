@@ -1,0 +1,17 @@
+<botcomponent_connectionreferenceset>
+  <botcomponent_connectionreference botcomponentid.schemaname="luthien_agent.action.ExcelOnlineBusiness-Listrowspresentinatable" connectionreferenceid.connectionreferencelogicalname="luthien_agent.shared_excelonlinebusiness.cb576311f98f427a9881212dfd290f1f">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+  <botcomponent_connectionreference botcomponentid.schemaname="luthien_agent.action.MicrosoftDataverse-Addanewrowtoselectedenvironment" connectionreferenceid.connectionreferencelogicalname="luthien_agent.shared_commondataserviceforapps.e8f300b8ab7e4e5e8a8e8443ab6ee002">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+  <botcomponent_connectionreference botcomponentid.schemaname="luthien_agent.action.MicrosoftDataverse-DataverseMCPServer" connectionreferenceid.connectionreferencelogicalname="luthien_agent.shared_commondataserviceforapps.e8f300b8ab7e4e5e8a8e8443ab6ee002">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+  <botcomponent_connectionreference botcomponentid.schemaname="luthien_agent.action.MicrosoftDataverse-Deletearowfromselectedenvironment" connectionreferenceid.connectionreferencelogicalname="luthien_agent.shared_commondataserviceforapps.e8f300b8ab7e4e5e8a8e8443ab6ee002">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+  <botcomponent_connectionreference botcomponentid.schemaname="luthien_agent.action.MicrosoftDataverse-Upsertarowinselectedenvironment" connectionreferenceid.connectionreferencelogicalname="luthien_agent.shared_commondataserviceforapps.e8f300b8ab7e4e5e8a8e8443ab6ee002">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+</botcomponent_connectionreferenceset>

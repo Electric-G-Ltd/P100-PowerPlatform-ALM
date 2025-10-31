@@ -1,0 +1,12 @@
+<botcomponent schemaname="luthien_agent.topic.ExcelAddIn_y31AGt1QwSHyju_b4mqEo">
+  <category>Authoritative</category>
+  <componenttype>16</componenttype>
+  <description>This knowledge source provides information found in Excel AddIn SharePoint.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Excel AddIn</name>
+  <parentbotid>
+    <schemaname>luthien_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

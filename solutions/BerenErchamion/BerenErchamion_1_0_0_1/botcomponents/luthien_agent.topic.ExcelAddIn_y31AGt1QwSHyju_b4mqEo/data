@@ -1,0 +1,4 @@
+kind: KnowledgeSourceConfiguration
+source:
+  kind: SharePointSearchSource
+  site: https://electricgcouk.sharepoint.com/sites/25Q4P100CopilotElectricalAgentSuite2/Design%20and%20Costing%20Assistant%20Agent%20DCA/Excel%20AddIn
