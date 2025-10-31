@@ -22,7 +22,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            ({github, context}) => {
+            ({github, context, core}) => {
               const requiredTopics = ['Topic: foo', 'Topic: bar'];
               const requiredActions = ['Action: foo', 'Action: bar'];
               const requiredArtefacts = ['Artefact: foo', 'Artefact: bar'];
@@ -31,17 +31,18 @@ jobs:
               const hasSingleAction = labels.filter(label => requiredActions.includes(label.name)).length === 1;
               const hasSingleArtefact = labels.filter(label => requiredArtefacts.includes(label.name)).length === 1;
               if (!hasSingleTopic || !hasSingleAction || !hasSingleArtefact) {
-                const issueComment = `
-                  Your labels do not comply with the required taxonomy:
-                  - One topic label is required: ${requiredTopics.join(', ')}
-                  - One action label is required: ${requiredActions.join(', ')}
-                  - One artefact label is required: ${requiredArtefacts.join(', ')}
-                `;
-                github.issues.createComment({
+                const issueComment = [
+                  'Your labels do not comply with the required taxonomy:',
+                  '- One topic label is required: ' + requiredTopics.join(', '),
+                  '- One action label is required: ' + requiredActions.join(', '),
+                  '- One artefact label is required: ' + requiredArtefacts.join(', ')
+                ].join('\n');
+                return github.issues.createComment({
                   ...context.repo,
                   issue_number: context.issue.number,
                   body: issueComment
+                }).then(() => {
+                  core.setFailed('Label taxonomy enforcement failed');
                 });
-                throw new Error('Label taxonomy enforcement failed');
               }
             }
