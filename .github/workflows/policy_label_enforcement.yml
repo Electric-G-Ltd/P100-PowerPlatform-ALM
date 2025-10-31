@@ -21,8 +21,28 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            # This script block must be valid JavaScript, but the YAML must be valid as well.
-            # The previous content was correct for github-script, but YAML errors may be due to indentation or invalid characters.
-            # Ensure the script is a valid multi-line string and not interpreted as YAML mappings.
-            // ...existing script content as above...
-            // (No YAML syntax errors should occur as long as the script is under script: | and indented properly)
+            const requiredTopics = ['Topic: foo', 'Topic: bar'];
+            const requiredActions = ['Action: foo', 'Action: bar'];
+            const requiredArtefacts = ['Artefact: foo', 'Artefact: bar'];
+            const labels = context.payload.pull_request?.labels || context.payload.issue?.labels || [];
+             // Your logic for enforcement goes here. For example:
+            // 1. Check only one from each category is present.
+            const hasSingleTopic = labels.filter(label => requiredTopics.includes(label.name)).length === 1;  
+            const hasSingleAction = labels.filter(label => requiredActions.includes(label.name)).length === 1;
+            const hasSingleArtefact = labels.filter(label => requiredArtefacts.includes(label.name)).length === 1;
+
+            // 3. Fail or comment if not compliant.
+            if (!hasSingleTopic || !hasSingleAction || !hasSingleArtefact) {
+              const issueComment = `
+                Your labels do not comply with the required taxonomy:
+                - One topic label is required: ${requiredTopics.join(', ')}
+                - One action label is required: ${requiredActions.join(', ')}
+                - One artefact label is required: ${requiredArtefacts.join(', ')}
+              `;
+              await github.issues.createComment({
+                ...context.repo,
+                issue_number: context.issue.number,
+                body: issueComment
+              });
+              throw new Error('Label taxonomy enforcement failed');
+            }
