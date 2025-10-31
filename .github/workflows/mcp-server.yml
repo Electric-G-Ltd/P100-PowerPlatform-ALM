@@ -24,7 +24,7 @@ jobs:
           cd mcp-server
           npm ci
 
-      - name: Run MCP Server (same as VS Code)
+      - name: Run MCP Server tests
         run: |
           cd mcp-server
-          npm start
+          npm test
