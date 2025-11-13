@@ -1,4 +1,5 @@
 {
+    "type": "module",
     "name": "p100-vscode-extension-sdk",
     "displayName": "P100 VS Code Extension SDK",
     "description": "Modular SDK for VS Code customization and Microsoft Graph API integration.",
