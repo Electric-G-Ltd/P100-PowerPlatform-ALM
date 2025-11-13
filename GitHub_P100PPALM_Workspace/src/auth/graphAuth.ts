@@ -1,12 +1,13 @@
 /* global console */
 import { DeviceCodeCredential } from "@azure/identity";
 import { Client } from "@microsoft/microsoft-graph-client";
+import { config } from "../config";
 
 export function getGraphClient(): Client {
     // DeviceCodeCredential prompts user to authenticate interactively
     const credential = new DeviceCodeCredential({
-        tenantId: "<YOUR_TENANT_ID>", // TODO: Replace with config or settings
-        clientId: "<YOUR_CLIENT_ID>", // TODO: Replace with config or settings
+        tenantId: config.tenantId,
+        clientId: config.clientId,
         userPromptCallback: (info) => {
             console.log(info.message);
         },

@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { config } from "../config";
 
 export class CopilotSettingsTreeDataProvider
     implements vscode.TreeDataProvider<vscode.TreeItem>
@@ -14,22 +15,42 @@ export class CopilotSettingsTreeDataProvider
         return element;
     }
 
-    getChildren(element?: vscode.TreeItem): Promise<vscode.TreeItem[]> {
-        // Example: return a static list of settings
+    async getChildren(element?: vscode.TreeItem): Promise<vscode.TreeItem[]> {
         if (!element) {
-            const item1 = new vscode.TreeItem(
-                "Copilot Setting 1",
+            // Show config values as editable items
+            const tenantIdItem = new vscode.TreeItem(
+                `Tenant ID: ${config.tenantId || "<not set>"}`,
                 vscode.TreeItemCollapsibleState.None
             );
-            item1.iconPath = new vscode.ThemeIcon("symbol-property");
-            const item2 = new vscode.TreeItem(
-                "Copilot Setting 2",
+            tenantIdItem.iconPath = new vscode.ThemeIcon("key");
+            tenantIdItem.command = {
+                command: "extension.editTenantId",
+                title: "Edit Tenant ID",
+                arguments: [],
+            };
+            const clientIdItem = new vscode.TreeItem(
+                `Client ID: ${config.clientId || "<not set>"}`,
                 vscode.TreeItemCollapsibleState.None
             );
-            item2.iconPath = new vscode.ThemeIcon("symbol-property");
-            return Promise.resolve([item1, item2]);
+            clientIdItem.iconPath = new vscode.ThemeIcon("key");
+            clientIdItem.command = {
+                command: "extension.editClientId",
+                title: "Edit Client ID",
+                arguments: [],
+            };
+            const clientSecretItem = new vscode.TreeItem(
+                `Client Secret: ${config.clientSecret ? "<set>" : "<not set>"}`,
+                vscode.TreeItemCollapsibleState.None
+            );
+            clientSecretItem.iconPath = new vscode.ThemeIcon("lock");
+            clientSecretItem.command = {
+                command: "extension.editClientSecret",
+                title: "Edit Client Secret",
+                arguments: [],
+            };
+            return [tenantIdItem, clientIdItem, clientSecretItem];
         }
-        return Promise.resolve([]);
+        return [];
     }
 
     refresh(): void {

@@ -5,7 +5,7 @@ import tsParser from "@typescript-eslint/parser";
 
 export default [
     {
-        ignores: ["out/**", "dist/**"],
+        ignores: ["out/**", "dist/**", "jest.config.js"],
     },
     js.configs.recommended,
     {

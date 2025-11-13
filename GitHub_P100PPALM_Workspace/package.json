@@ -1,4 +1,5 @@
 {
+    "type": "module",
     "name": "p100-vscode-extension-sdk",
     "displayName": "P100 VS Code Extension SDK",
     "description": "Modular SDK for VS Code customization and Microsoft Graph API integration.",
@@ -28,11 +29,14 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.38.0",
+        "@types/jest": "^30.0.0",
         "@types/node": "^20.0.0",
         "@types/vscode": "^1.80.0",
         "@typescript-eslint/eslint-plugin": "^8.46.2",
         "@typescript-eslint/parser": "^8.46.2",
         "eslint": "^9.38.0",
+        "jest": "^30.2.0",
+        "ts-jest": "^29.4.5",
         "typescript": "^5.0.0"
     },
     "dependencies": {

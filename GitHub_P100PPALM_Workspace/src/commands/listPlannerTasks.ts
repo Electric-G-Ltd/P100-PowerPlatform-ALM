@@ -1,12 +1,13 @@
 import * as vscode from "vscode";
-import { getGraphClient } from "../auth/graphAuth";
+import { GraphService } from "../graphService";
 
 export function register(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand(
         "extension.listPlannerTasks",
         async () => {
             try {
-                const client = getGraphClient();
+                const graphService = new GraphService();
+                const client = graphService.getClient();
                 // Fetch Planner tasks for the authenticated user
                 const plans = await client.api("/me/planner/plans").get();
                 let message = "";
